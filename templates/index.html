@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <title>NHS Appointment Scheduler</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+   <div class="card">
+    <form action="/submit" method="POST">
+        <div class="personal">
+            <h3 class="personal_info">Personal Information</h3>
+            <p><input autocomplete="off" autofocus name="first_name" placeholder="First Name" type="text"></p>
+            <p><input autocomplete="off" autofocus name="last_name" placeholder="Last Name" type="text"></p>
+            <p><input autocomplete="off" autofocus name="age" placeholder="Age" type="text"></p>
+            <p><div class="gender">
+                <select name="gender" id="">
+                    <option disabled selected value="">Select your gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                    <option value="prefer_not_to_say">Prefer not to say</option>
+                </select>
+            </div></p>
+            <p><input autocomplete="off" autofocus name="unique_number" placeholder="NHX Unique Number" type="text"></p>
+            <p><input autocomplete="off" autofocus name="email" placeholder="Email Address" type="email"></p>
+            <p><input autocomplete="off" autofocus name="phone_number" placeholder="Phone Number" type="text"></p>
+        </div>
+        <div class="medical_condition">
+            <h3 class="medical_condition">Medical Information</h3>
+            <label for="reason">Reason for Appointment:</label>
+            <textarea id="reason" name="reason" rows="3" cols="44"></textarea>
+            <div class="radio-options">
+                <label for="family_history">Family history with ailment?</label>
+                <input type="radio" id="family_history_yes" name="family_history" value="yes" checked>
+                <label for="family_history_yes">Yes</label>
+                <input type="radio" id="family_history_no" name="family_history" value="no">
+                <label for="family_history_no">No</label>
+            </div>
+            <label for="severity">Severity:</label>
+            <select name="severity" id="severity">
+                <option disabled selected value="">Severity</option>
+                <option value="Routine">Routine</option>
+                <option value="Moderate">Moderate</option>
+                <option value="Mild">Mild</option>
+                <option value="Urgent">Urgent</option>
+                <option value="Severe">Severe</option>
+                <option value="Emergency">Emergency</option>
+            </select>
+            <br>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    
+   </div> 
+</body>
+</html>
